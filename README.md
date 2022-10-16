@@ -3,71 +3,174 @@
 ## README About project data mining codeless
 
 ## Overview
- This project is about the Quran. To compare translators with similar percentages using surah Al-fatihah to compare. with a total of 14 translators, using Dr. Mustafa Kattab as the main translator for comparison. And this is the first project to do text mining using knime. 
+ The project is a text mining project which uses Ayah Al-Qur'an Surah Al-Fatihah for text mining 
+by taking the text that each translator translates to find the similarity
+By measuring the similarity of Surah Al-Fatihah ( The opening) using four models; text processing , 
+Term Frequency-inverse Document Frequency or TF, IDF and cosine Similarity
+
 ### Method
-1. We need to put the data in our excel into knime by using
-* Node excel reader
-![image](https://user-images.githubusercontent.com/78845389/195181715-23139baa-9a19-4e8e-ac50-2635d1fedf65.png)
-* result
-![image](https://user-images.githubusercontent.com/78845389/195181925-404ec717-5fd6-4e29-8799-bd402b97b23f.png)
-2. Take the column that we want to run.
-* Node Cullum filter
-![image](https://user-images.githubusercontent.com/78845389/195182709-b08adda8-4878-435d-8137-118f6cd2709b.png)
+tool of use 
+- computer 
+- excel
+- knime analytics platform 
+- github
 
-* result
-![image](https://user-images.githubusercontent.com/78845389/195182624-e2295653-4fc9-42a0-8790-d76b6e6c4fbb.png)
+ACCESS DATA
 
-3. Change data from Number to String
- ![image](https://user-images.githubusercontent.com/78845389/195182864-e0b03943-8733-457b-830f-1e76bf3f7943.png)
+1.import data from Excel. By using:
 
-4. Change data from String to Document.
- ![image](https://user-images.githubusercontent.com/78845389/195182884-66c56b03-53ae-41c8-9965-b3b80a0c9684.png)
+- Node Excel Reader
 
-5. Do text processing, select the columns first and then will remove the letters of magic words and removes unnecessary words such as a , the , and then converts all uppercase to lowercase words. and then abbreviate From words that have the same meaning but are written differently, change them to the same word. After that, the numerical words will be removed. Then later we will choose the ROW to compare. After that, it will spread the word in ROW, what will be the word?
-* Node Cullum filter
-* Node Punctuation Erasure
-* Node Stop Word filter
-* Node Case converter
-* Node N chars filter
-* Node Row filter
-* Node Bag of word Creator
-  ![image](https://user-images.githubusercontent.com/78845389/195183185-66ab40d7-79d5-4ef4-9526-64f0dfa80fca.png)
-* result
- ![image](https://user-images.githubusercontent.com/78845389/195183579-6e17b22c-e5eb-4e34-a0a0-31f3410117e6.png)
+![image](https://user-images.githubusercontent.com/78845389/196055651-f48fcbd0-0345-4ae1-8a4b-f314dafd0a2f.png)
 
-6. model to find the frequency using TF and IDF and use math formula to multiply the results of TF,IDF.
-* Node TF
-* Node Cullum Rename changed column name from TF rel to Tf.
-* Node IDF
-* Node math formula
-![image](https://user-images.githubusercontent.com/78845389/195185329-8c30a167-7f08-4e16-bc59-cb65ff5c1e16.png)
+result
 
-Result TF
- ![image](https://user-images.githubusercontent.com/78845389/195183763-bd10fc1d-3b72-4f99-8ef4-7fad91c5372d.png)
+![image](https://user-images.githubusercontent.com/78845389/196055666-1b6b27d0-0064-4409-a439-73892e162f3b.png)
 
-*Result IDF
- ![image](https://user-images.githubusercontent.com/78845389/195183794-cfe6236e-8dfe-4253-b866-01a3d7b40c79.png)
 
-*Result Math formula
- ![image](https://user-images.githubusercontent.com/78845389/195183845-785f61d5-2408-480c-a788-35be73ab570b.png)
+2. Tranfrom data
 
-7. Put all the values together.
-* Node Document Vector
-  ![image](https://user-images.githubusercontent.com/78845389/195184032-9579674f-9e56-44d9-b260-6f02e410e66a.png)
+![image](https://user-images.githubusercontent.com/78845389/196055696-5a26bf56-3109-4a38-b271-0fd9c8872d60.png)
 
-*Result
-![image](https://user-images.githubusercontent.com/78845389/195184087-16647b92-b7f5-479e-a3ee-2496957edaf5.png)
+1.Remove unused data by 
+- Node Collumn filter
 
-8. Select the column that you want to use. and select the translators we want to compare using
- * Node Column Filler
- * Node Row Filter
-  ![image](https://user-images.githubusercontent.com/78845389/195184162-ac7e9570-5780-4e69-887a-736e6df40dfc.png)
+Remove 
 
-9. Use the selected comparator to test for similarity using
-* Node Similarity Search
- ![image](https://user-images.githubusercontent.com/78845389/195184271-10cebf23-558a-4e89-b38c-6d70f8c4ff10.png)
+![image](https://user-images.githubusercontent.com/78845389/196055776-a91cf30a-48d3-495a-aa09-22671dbab24d.png)
 
-*Result
+result
 
-![image](https://user-images.githubusercontent.com/78845389/195184325-1c9374ac-aa02-4088-913b-4fddeee1964f.png)
+![image](https://user-images.githubusercontent.com/78845389/196055790-76f2e355-f55d-4001-863f-5f33b9502a47.png)
 
+2. Convert data from column to row By  
+- Node Transpose
+
+result
+
+ ![image](https://user-images.githubusercontent.com/78845389/196055816-b2fe564e-5e4a-4d74-94d5-2a0152865d39.png)
+
+3. Combine each column of text into a single column. And removes unused columns. By
+
+- Node Column Combiner
+- Node Column Fillter
+
+Result
+
+ ![image](https://user-images.githubusercontent.com/78845389/196055843-9505eeaf-2f26-4c51-9472-f781c4cefba7.png)
+
+4. Create a new column in the table and combine it with the original table.
+- Node Table Creator 
+- Node Column Appender 
+
+![image](https://user-images.githubusercontent.com/78845389/196055903-3f175dc7-1fbe-4038-a640-3c81b2cc6564.png)
+
+![image](https://user-images.githubusercontent.com/78845389/196055916-f54c809e-731f-46b1-a314-254c241be919.png)
+
+5. .Remove Dashes from Text 
+- Node String Manipulation
+Before Remove 
+
+![image](https://user-images.githubusercontent.com/78845389/196055936-a3452b2c-61de-40b7-945f-25414605c310.png)
+
+After remove
+
+![image](https://user-images.githubusercontent.com/78845389/196055957-f399b77b-f560-4b68-bcf7-70d25e1d2e9e.png)
+
+
+Text Processing
+
+![image](https://user-images.githubusercontent.com/78845389/196055978-f47fa8f2-a316-4032-b597-f1ee3a88a298.png)
+
+![image](https://user-images.githubusercontent.com/78845389/196055988-e56467e6-0373-498c-9d09-2ac818cb29ec.png)
+
+1	Convert String to Doccument by will be collum tran_id and text will be collum surah. And delete the collum thatare not used by 
+
+-	Node String to Doccumet 
+-	Collumm filter 
+
+![image](https://user-images.githubusercontent.com/78845389/196056042-5f2ed8f3-6265-487c-97a8-bb3e47d131c6.png)
+
+Result
+
+ ![image](https://user-images.githubusercontent.com/78845389/196056061-8d2704ad-b793-46cf-b816-5c951ff929ec.png)
+
+2.Remove special word such as (? ! , . () , : ; "") chang all letters to lowercase. Remove unnecessary word. Frequently encountered words such as the,to,and etc. by 
+- Node Punctuation Erasure
+- Case Converter 
+- Stop Word Filter 
+
+Result
+
+![image](https://user-images.githubusercontent.com/78845389/196056193-7f2b7445-aa99-42a7-a7f4-5101fbee90b2.png)
+
+3. Use POS Tagger node ,Stanford node to separate word Part of speech(nouns,verbs, adverb etc.)
+
+-  Node POS Tagger
+- Node Stanford Tagger 
+- Node Standord Lemmatizer 
+
+Result 
+
+![image](https://user-images.githubusercontent.com/78845389/196056209-715772d0-30aa-4c64-ae61-ccbd028a8515.png)
+
+4. Separate words into individual words. in order to be able to compare each word. By
+
+- Node Bag Of Words Creator 
+
+Result
+
+![image](https://user-images.githubusercontent.com/78845389/196056238-75e442eb-b488-483b-9727-458862eac36a.png)
+
+5. Put all the separate words together in each column of words. By 
+
+-Node Document vecter 
+
+![image](https://user-images.githubusercontent.com/78845389/196056268-bd5c4912-d17f-4da8-b358-bcfe1323b196.png)
+
+Result
+
+![image](https://user-images.githubusercontent.com/78845389/196056283-2e1e1525-f7a5-457b-a1d3-8d528e696cf5.png)
+
+Model 
+
+![image](https://user-images.githubusercontent.com/78845389/196056292-3c4de6e9-4439-454f-ab0f-1210a7a63499.png)
+
+1. Model to find the frequency by using TF ,IDF and use math formula to  multiply the results of TF,IDF 
+- Node TF 
+- Node Colum Rename  
+- Node IDF 
+- Node math formula  
+
+Resutl 
+
+![image](https://user-images.githubusercontent.com/78845389/196056345-fb5af1f7-7d01-48bb-bad8-8ec0442b5a49.png)
+
+Add Column And Sort Column By ID
+
+![image](https://user-images.githubusercontent.com/78845389/196056364-022c363c-d36c-4355-ada3-3df3dd5f6628.png)
+
+Result 
+
+![image](https://user-images.githubusercontent.com/78845389/196056388-ad9137c1-11f5-487e-87d3-381d0907c1a6.png)
+
+Similarity View
+ Node Similarity Search
+ 
+ ![image](https://user-images.githubusercontent.com/78845389/196056430-d1b28eec-e203-4de0-87ca-89232b8a74f5.png)
+
+1. Assign translators to compare For analogy use columns. ID  กำหนดนักแปลเพื่อเปรียบเทียบ ความคล้ายคลึง โดยใช้ คอลัมม์ 
+
+- Node Row Fillter
+
+![image](https://user-images.githubusercontent.com/78845389/196056461-2ba25d3e-0e98-4f51-a08a-5e7599394a4a.png)
+
+2. Use Similarity Search to test similarity. By 
+
+- Node Similarity Search
+
+![image](https://user-images.githubusercontent.com/78845389/196056527-940ea34d-797c-4fa5-9954-8b35b9e1dc9e.png)
+
+Result 
+
+![image](https://user-images.githubusercontent.com/78845389/196056536-24001208-a5a8-426b-94e7-5abf4b0bf538.png)
