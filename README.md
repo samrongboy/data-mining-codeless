@@ -159,7 +159,7 @@ Similarity View
  
  ![image](https://user-images.githubusercontent.com/78845389/196056430-d1b28eec-e203-4de0-87ca-89232b8a74f5.png)
 
-1. Assign translators to compare For analogy use columns. ID  กำหนดนักแปลเพื่อเปรียบเทียบ ความคล้ายคลึง โดยใช้ คอลัมม์ 
+1. Assign translators to compare For analogy use columns. ID  
 
 - Node Row Fillter
 
