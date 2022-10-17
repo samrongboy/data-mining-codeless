@@ -176,3 +176,6 @@ Similarity View
 Result 
 
 ![image](https://user-images.githubusercontent.com/78845389/196056536-24001208-a5a8-426b-94e7-5abf4b0bf538.png)
+
+**Conclusion**
+In this project, I used tfi-df to generate word weight frequencies. And using the cosine method to measure the distance between 14 papers of surah Al-fatihah and I got the highest similarity score - 0.85 and the lowest - 0.14.
