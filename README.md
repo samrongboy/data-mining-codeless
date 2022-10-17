@@ -84,7 +84,7 @@ Text Processing
 
 ![image](https://user-images.githubusercontent.com/78845389/196081020-311d4a5e-6464-4758-9880-edb4ccea6193.png)
 
-![image](https://user-images.githubusercontent.com/78845389/196081177-1fd34dc5-5415-4d25-9c77-2a9ba63402ea.png)
+![image](https://user-images.githubusercontent.com/78845389/196081246-31a05d9b-9346-4c8e-9824-d72a16815544.png)
 
 1	Convert String to Doccument by will be collum tran_id and text will be collum surah. And delete the collum thatare not used by 
 
