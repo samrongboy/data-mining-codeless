@@ -30,6 +30,8 @@ result
 
 2. Tranfrom data
 
+![image](https://user-images.githubusercontent.com/78845389/196080913-e2c0bf05-1f3d-436c-a56c-80f3db0cd221.png)
+
 ![image](https://user-images.githubusercontent.com/78845389/196055696-5a26bf56-3109-4a38-b271-0fd9c8872d60.png)
 
 1.Remove unused data by 
@@ -80,9 +82,9 @@ After remove
 
 Text Processing
 
-![image](https://user-images.githubusercontent.com/78845389/196055978-f47fa8f2-a316-4032-b597-f1ee3a88a298.png)
+![image](https://user-images.githubusercontent.com/78845389/196081020-311d4a5e-6464-4758-9880-edb4ccea6193.png)
 
-![image](https://user-images.githubusercontent.com/78845389/196055988-e56467e6-0373-498c-9d09-2ac818cb29ec.png)
+![image](https://user-images.githubusercontent.com/78845389/196081050-77a50185-6805-47ff-9990-3e282f9bae97.png)
 
 1	Convert String to Doccument by will be collum tran_id and text will be collum surah. And delete the collum thatare not used by 
 
