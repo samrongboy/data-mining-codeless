@@ -17,7 +17,7 @@ tool of use
 
 ACCESS DATA
 
-1.import data from Excel. By using:
+1.Import data from Excel. By using:
 
 - Node Excel Reader
 
